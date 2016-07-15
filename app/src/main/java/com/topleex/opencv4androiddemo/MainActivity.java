@@ -25,9 +25,7 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-                fragment.test();
+                fragment.importImage();
             }
         });
 
@@ -54,9 +52,43 @@ public class MainActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (id) {
+            case R.id.right_menu_itme1:
+                fragment.grey();
+                break;
+            case R.id.right_menu_itme2:
+
+                break;
+            case R.id.right_menu_itme3:
+
+                break;
+            case R.id.right_menu_itme4:
+
+                break;
+            case R.id.right_menu_itme5:
+
+                break;
+            case R.id.right_menu_itme6:
+
+                break;
+            case R.id.right_menu_itme7:
+
+                break;
+            case R.id.right_menu_itme8:
+
+                break;
+            case R.id.right_menu_itme9:
+
+                break;
+            case R.id.right_menu_itme10:
+
+                break;
+            case R.id.right_menu_itme11:
+
+                break;
+            case R.id.right_menu_itme12:
+
+                break;
         }
 
         return super.onOptionsItemSelected(item);

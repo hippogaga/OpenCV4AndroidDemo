@@ -10,10 +10,6 @@ using namespace cv;
 
 extern "C" {
 
-JNIEXPORT jintArray JNICALL Java_com_topleex_opencv4androiddemo_OpenCVHelper_gray(
-        JNIEnv *env, jclass obj, jintArray buf, int w, int h);
-
-
 
 JNIEXPORT jintArray JNICALL Java_com_topleex_opencv4androiddemo_OpenCVHelper_gray(
         JNIEnv *env, jclass obj, jintArray buf, int w, int h) {

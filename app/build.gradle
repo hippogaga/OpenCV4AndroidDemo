@@ -38,6 +38,7 @@ android {
         } else {
             commandLine "$ndkDir/ndk-build", '-C', file('src/main/jni').absolutePath
         }
+
     }
 
     tasks.withType(JavaCompile) {

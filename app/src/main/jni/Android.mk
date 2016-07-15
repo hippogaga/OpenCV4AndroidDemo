@@ -6,7 +6,7 @@ include $(CLEAR_VARS)
 OpenCV_INSTALL_MODULES := on
 OpenCV_CAMERA_MODULES := off
 
-OPENCV_LIB_TYPE :=STATIC
+OPENCV_LIB_TYPE := SHARED
 
 ifeq ("$(wildcard $(OPENCV_MK_PATH))","")
 include /Users/topleex/Documents/workspace/OpenCV4AndroidDemo/native/jni/OpenCV.mk
@@ -16,7 +16,7 @@ endif
 
 LOCAL_MODULE := OpenCV
 
-LOCAL_SRC_FILES :=  com_topleex_opencv4androiddemo_OpenCVHelper
+LOCAL_SRC_FILES :=  com_topleex_opencv4androiddemo_OpenCVHelper.cpp
 
 LOCAL_LDLIBS +=  -lm -llog
 

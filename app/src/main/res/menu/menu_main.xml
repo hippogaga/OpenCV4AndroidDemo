@@ -3,8 +3,63 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.topleex.opencv4androiddemo.MainActivity">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/right_menu_itme1"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="@string/math_gray"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/right_menu_itme2"
+        android:orderInCategory="100"
+        android:title="@string/math_binary"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/right_menu_itme3"
+        android:orderInCategory="100"
+        android:title="@string/convolution_roberts"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/right_menu_itme4"
+        android:orderInCategory="100"
+        android:title="@string/convolution_prewitt"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/right_menu_itme5"
+        android:orderInCategory="100"
+        android:title="@string/convolution_Sobel"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/right_menu_itme6"
+        android:orderInCategory="100"
+        android:title="@string/filter_average"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/right_menu_itme7"
+        android:orderInCategory="100"
+        android:title="@string/filter_gauss"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/right_menu_itme8"
+        android:orderInCategory="100"
+        android:title="@string/filter_median"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/right_menu_itme9"
+        android:orderInCategory="100"
+        android:title="@string/morphology_expansion"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/right_menu_itme10"
+        android:orderInCategory="100"
+        android:title="@string/morphology_erose"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/right_menu_itme11"
+        android:orderInCategory="100"
+        android:title="@string/morphology_open"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/right_menu_itme12"
+        android:orderInCategory="100"
+        android:title="@string/morphology_close"
         app:showAsAction="never" />
 </menu>
