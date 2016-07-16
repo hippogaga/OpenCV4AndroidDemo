@@ -15,6 +15,89 @@ extern "C" {
 JNIEXPORT jintArray JNICALL Java_com_topleex_opencv4androiddemo_OpenCVHelper_gray
   (JNIEnv *, jclass, jintArray, jint, jint);
 
+/*
+ * Class:     com_topleex_opencv4androiddemo_OpenCVHelper
+ * Method:    binary
+ * Signature: ([III)[I
+ */
+JNIEXPORT jintArray JNICALL Java_com_topleex_opencv4androiddemo_OpenCVHelper_binary
+        (JNIEnv *, jclass, jintArray, jint, jint);
+
+/*
+ * Class:     com_topleex_opencv4androiddemo_OpenCVHelper
+ * Method:    gauss
+ * Signature: ([III)[I
+ */
+JNIEXPORT jintArray JNICALL Java_com_topleex_opencv4androiddemo_OpenCVHelper_gauss
+        (JNIEnv *, jclass, jintArray, jint, jint);
+
+/*
+ * Class:     com_topleex_opencv4androiddemo_OpenCVHelper
+ * Method:    median
+ * Signature: ([III)[I
+ */
+JNIEXPORT jintArray JNICALL Java_com_topleex_opencv4androiddemo_OpenCVHelper_median
+        (JNIEnv *, jclass, jintArray, jint, jint);
+
+/*
+ * Class:     com_topleex_opencv4androiddemo_OpenCVHelper
+ * Method:    average
+ * Signature: ([III)[I
+ */
+JNIEXPORT jintArray JNICALL Java_com_topleex_opencv4androiddemo_OpenCVHelper_average
+        (JNIEnv *, jclass, jintArray, jint, jint);
+
+/*
+ * Class:     com_topleex_opencv4androiddemo_OpenCVHelper
+ * Method:    erode
+ * Signature: ([III)[I
+ */
+JNIEXPORT jintArray JNICALL Java_com_topleex_opencv4androiddemo_OpenCVHelper_erode
+        (JNIEnv *, jclass, jintArray, jint, jint);
+
+/*
+ * Class:     com_topleex_opencv4androiddemo_OpenCVHelper
+ * Method:    dilation
+ * Signature: ([III)[I
+ */
+JNIEXPORT jintArray JNICALL Java_com_topleex_opencv4androiddemo_OpenCVHelper_dilation
+        (JNIEnv *, jclass, jintArray, jint, jint);
+
+/*
+ * Class:     com_topleex_opencv4androiddemo_OpenCVHelper
+ * Method:    open
+ * Signature: ([III)[I
+ */
+JNIEXPORT jintArray JNICALL Java_com_topleex_opencv4androiddemo_OpenCVHelper_open
+        (JNIEnv *, jclass, jintArray, jint, jint);
+
+/*
+ * Class:     com_topleex_opencv4androiddemo_OpenCVHelper
+ * Method:    close
+ * Signature: ([III)[I
+ */
+JNIEXPORT jintArray JNICALL Java_com_topleex_opencv4androiddemo_OpenCVHelper_close
+        (JNIEnv *, jclass, jintArray, jint, jint);
+
+/*
+ * Class:     com_topleex_opencv4androiddemo_OpenCVHelper
+ * Method:    sobel
+ * Signature: ([III)[I
+ */
+JNIEXPORT jintArray JNICALL Java_com_topleex_opencv4androiddemo_OpenCVHelper_sobel
+        (JNIEnv *, jclass, jintArray, jint, jint);
+
+/*
+ * Class:     com_topleex_opencv4androiddemo_OpenCVHelper
+ * Method:    canny
+ * Signature: ([III)[I
+ */
+JNIEXPORT jintArray JNICALL Java_com_topleex_opencv4androiddemo_OpenCVHelper_histo
+        (JNIEnv *, jclass, jintArray, jint, jint);
+
+
+
+
 #ifdef __cplusplus
 }
 #endif

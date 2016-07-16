@@ -10,6 +10,18 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import static com.topleex.opencv4androiddemo.Global.VIEW_MODE_AVERAGE;
+import static com.topleex.opencv4androiddemo.Global.VIEW_MODE_BINARY;
+import static com.topleex.opencv4androiddemo.Global.VIEW_MODE_CLOSE;
+import static com.topleex.opencv4androiddemo.Global.VIEW_MODE_DILATION;
+import static com.topleex.opencv4androiddemo.Global.VIEW_MODE_ERODE;
+import static com.topleex.opencv4androiddemo.Global.VIEW_MODE_GAUSS;
+import static com.topleex.opencv4androiddemo.Global.VIEW_MODE_GREY;
+import static com.topleex.opencv4androiddemo.Global.VIEW_MODE_HIST;
+import static com.topleex.opencv4androiddemo.Global.VIEW_MODE_MEDIAN;
+import static com.topleex.opencv4androiddemo.Global.VIEW_MODE_OPEN;
+import static com.topleex.opencv4androiddemo.Global.VIEW_MODE_SOBEL;
+
 public class MainActivity extends AppCompatActivity {
 
     private MainActivityFragment fragment;
@@ -54,40 +66,37 @@ public class MainActivity extends AppCompatActivity {
 
         switch (id) {
             case R.id.right_menu_itme1:
-                fragment.grey();
+                fragment.process(VIEW_MODE_GREY);;
                 break;
             case R.id.right_menu_itme2:
-
-                break;
-            case R.id.right_menu_itme3:
-
+                fragment.process(VIEW_MODE_BINARY);
                 break;
             case R.id.right_menu_itme4:
-
+                fragment.process(VIEW_MODE_HIST);
                 break;
             case R.id.right_menu_itme5:
-
+                fragment.process(VIEW_MODE_GAUSS);
                 break;
             case R.id.right_menu_itme6:
-
-                break;
-            case R.id.right_menu_itme7:
-
+                fragment.process(VIEW_MODE_SOBEL);
                 break;
             case R.id.right_menu_itme8:
-
+                fragment.process(VIEW_MODE_MEDIAN);
                 break;
             case R.id.right_menu_itme9:
-
+                fragment.process(VIEW_MODE_DILATION);
                 break;
             case R.id.right_menu_itme10:
-
+                fragment.process(VIEW_MODE_ERODE);
                 break;
             case R.id.right_menu_itme11:
-
+                fragment.process(VIEW_MODE_OPEN);
                 break;
             case R.id.right_menu_itme12:
-
+                fragment.process(VIEW_MODE_CLOSE);
+                break;
+            case R.id.right_menu_itme13:
+                fragment.process(VIEW_MODE_AVERAGE);
                 break;
         }
 

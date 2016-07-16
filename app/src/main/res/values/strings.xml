@@ -4,14 +4,19 @@
     <string name="default_image">Default</string>
     <string name="math_gray">Grey</string>
     <string name="math_binary">Binary</string>
-    <string name="convolution_roberts">Roberts</string>
-    <string name="convolution_prewitt">Prewwitt</string>
-    <string name="convolution_Sobel">Sobel</string>
-    <string name="filter_gauss">Gauss</string>
-    <string name="filter_average">Average</string>
-    <string name="filter_median">Median</string>
-    <string name="morphology_expansion">Expansion</string>
-    <string name="morphology_erose">Erose</string>
+    <string name="histograms">Histograms</string>
+    <string name="canny">Canny</string>
+    <string name="sepia">Sepia</string>
+    <string name="sobel">Sobel</string>
+    <string name="pixelize">Pixelize</string>
+    <string name="posterize">Posterize</string>
+
+    <string name="gauss">Gauss</string>
+    <string name="median">Median</string>
+    <string name="average">Average</string>
+
+    <string name="morphology_expansion">Dilation</string>
+    <string name="morphology_erose">Erode</string>
     <string name="morphology_open">Open</string>
     <string name="morphology_close">Close</string>
 </resources>

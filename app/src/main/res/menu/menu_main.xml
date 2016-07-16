@@ -13,34 +13,29 @@
         android:title="@string/math_binary"
         app:showAsAction="never" />
     <item
-        android:id="@+id/right_menu_itme3"
-        android:orderInCategory="100"
-        android:title="@string/convolution_roberts"
-        app:showAsAction="never" />
-    <item
         android:id="@+id/right_menu_itme4"
         android:orderInCategory="100"
-        android:title="@string/convolution_prewitt"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/right_menu_itme5"
-        android:orderInCategory="100"
-        android:title="@string/convolution_Sobel"
+        android:title="@string/histograms"
         app:showAsAction="never" />
     <item
         android:id="@+id/right_menu_itme6"
         android:orderInCategory="100"
-        android:title="@string/filter_average"
+        android:title="@string/sobel"
         app:showAsAction="never" />
     <item
-        android:id="@+id/right_menu_itme7"
+        android:id="@+id/right_menu_itme5"
         android:orderInCategory="100"
-        android:title="@string/filter_gauss"
+        android:title="@string/gauss"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/right_menu_itme13"
+        android:orderInCategory="100"
+        android:title="@string/average"
         app:showAsAction="never" />
     <item
         android:id="@+id/right_menu_itme8"
         android:orderInCategory="100"
-        android:title="@string/filter_median"
+        android:title="@string/median"
         app:showAsAction="never" />
     <item
         android:id="@+id/right_menu_itme9"
@@ -62,4 +57,5 @@
         android:orderInCategory="100"
         android:title="@string/morphology_close"
         app:showAsAction="never" />
+
 </menu>
