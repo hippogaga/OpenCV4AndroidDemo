@@ -66,7 +66,8 @@ public class MainActivity extends AppCompatActivity {
 
         switch (id) {
             case R.id.right_menu_itme1:
-                fragment.process(VIEW_MODE_GREY);;
+                fragment.process(VIEW_MODE_GREY);
+                ;
                 break;
             case R.id.right_menu_itme2:
                 fragment.process(VIEW_MODE_BINARY);

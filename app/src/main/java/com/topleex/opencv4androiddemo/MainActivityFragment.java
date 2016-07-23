@@ -48,7 +48,6 @@ public class MainActivityFragment extends Fragment {
     private OpenCVHelper openCV;
 
 
-
     public MainActivityFragment() {
     }
 
@@ -87,7 +86,7 @@ public class MainActivityFragment extends Fragment {
         }
     }
 
-    public void useDefaultImage () {
+    public void useDefaultImage() {
 //        Bitmap bitmap = ((BitmapDrawable) getResources().getDrawable(
 //                R.drawable.layla)).getBitmap();
 //
@@ -102,8 +101,8 @@ public class MainActivityFragment extends Fragment {
         // options 设为true时，构造出的bitmap没有图片，只有一些长宽等配置信息，但比较快，设为false时，才有图片
         options.inJustDecodeBounds = true;
         Bitmap bitmap = BitmapFactory.decodeFile(imgPath, options);
-        int scale = (int)( options.outWidth / (float) with);
-        if(scale <= 0)
+        int scale = (int) (options.outWidth / (float) with);
+        if (scale <= 0)
             scale = 1;
         options.inSampleSize = scale;
         options.inJustDecodeBounds = false;
@@ -129,7 +128,6 @@ public class MainActivityFragment extends Fragment {
         bm.getPixels(pix, 0, w, 0, 0, w, h);
 
         int[] result = new int[w * h];
-
 
 
         switch (mode) {

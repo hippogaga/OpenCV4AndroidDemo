@@ -3,10 +3,8 @@
 //
 #include "com_topleex_opencv4androiddemo_OpenCVHelper.h"
 #include <stdio.h>
-#include <stdlib.h>
 #include <opencv2/opencv.hpp>
 
-#include <android/log.h>
 #define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG, "OpenCVDemo", __VA_ARGS__)
 
 using namespace cv;
@@ -18,21 +16,22 @@ JNIEXPORT jintArray JNICALL Java_com_topleex_opencv4androiddemo_OpenCVHelper_gra
         JNIEnv *env, jclass obj, jintArray buf, int w, int h) {
 
     jint *cbuf;
-    cbuf = env->GetIntArrayElements(buf, JNI_FALSE );
+    cbuf = env->GetIntArrayElements(buf, JNI_FALSE);
     if (cbuf == NULL) {
         return 0;
     }
 
     Mat imgData(h, w, CV_8UC4, (unsigned char *) cbuf);
 
-    uchar* ptr = imgData.ptr(0);
-    for(int i = 0; i < w*h; i ++){
+    uchar *ptr = imgData.ptr(0);
+    for (int i = 0; i < w * h; i++) {
         //计算公式：Y(亮度) = 0.299*R + 0.587*G + 0.114*B
         //对于一个int四字节，其彩色值存储方式为：BGRA
-        int grayScale = (int)(ptr[4*i+2]*0.299 + ptr[4*i+1]*0.587 + ptr[4*i+0]*0.114);
-        ptr[4*i+1] = grayScale;
-        ptr[4*i+2] = grayScale;
-        ptr[4*i+0] = grayScale;
+        int grayScale = (int) (ptr[4 * i + 2] * 0.299 + ptr[4 * i + 1] * 0.587 +
+                               ptr[4 * i + 0] * 0.114);
+        ptr[4 * i + 1] = grayScale;
+        ptr[4 * i + 2] = grayScale;
+        ptr[4 * i + 0] = grayScale;
     }
 
     int size = w * h;
@@ -46,18 +45,19 @@ JNIEXPORT jintArray JNICALL Java_com_topleex_opencv4androiddemo_OpenCVHelper_bin
         JNIEnv *env, jclass obj, jintArray buf, int w, int h) {
 
     jint *cbuf;
-    cbuf = env->GetIntArrayElements(buf, JNI_FALSE );
+    cbuf = env->GetIntArrayElements(buf, JNI_FALSE);
     if (cbuf == NULL) {
         return 0;
     }
 
     Mat imgData(h, w, CV_8UC4, (unsigned char *) cbuf);
 
-    uchar* ptr = imgData.ptr(0);
-    for(int i = 0; i < w*h; i ++){
+    uchar *ptr = imgData.ptr(0);
+    for (int i = 0; i < w * h; i++) {
         //计算公式：Y(亮度) = 0.299*R + 0.587*G + 0.114*B
         //对于一个int四字节，其彩色值存储方式为：BGRA
-        int grayScale = (int)(ptr[4*i+2]*0.299 + ptr[4*i+1]*0.587 + ptr[4*i+0]*0.114);
+        int grayScale = (int) (ptr[4 * i + 2] * 0.299 + ptr[4 * i + 1] * 0.587 +
+                               ptr[4 * i + 0] * 0.114);
 
         if (grayScale >= 0 && grayScale <= 127) {
             grayScale = 0;
@@ -65,9 +65,9 @@ JNIEXPORT jintArray JNICALL Java_com_topleex_opencv4androiddemo_OpenCVHelper_bin
             grayScale = 255;
         }
 
-        ptr[4*i+1] = grayScale;
-        ptr[4*i+2] = grayScale;
-        ptr[4*i+0] = grayScale;
+        ptr[4 * i + 1] = grayScale;
+        ptr[4 * i + 2] = grayScale;
+        ptr[4 * i + 0] = grayScale;
     }
 
     //imgData.
@@ -83,31 +83,31 @@ JNIEXPORT jintArray JNICALL Java_com_topleex_opencv4androiddemo_OpenCVHelper_gau
         JNIEnv *env, jclass obj, jintArray buf, int w, int h) {
 
     jint *cbuf;
-    cbuf = env->GetIntArrayElements(buf, JNI_FALSE );
+    cbuf = env->GetIntArrayElements(buf, JNI_FALSE);
     if (cbuf == NULL) {
         return 0;
     }
 
     Mat imgData(h, w, CV_8UC4, (unsigned char *) cbuf);
 
-    uchar* ptr = imgData.ptr(0);
-    for(int i = 0; i < w*h; i ++){
+    uchar *ptr = imgData.ptr(0);
+    for (int i = 0; i < w * h; i++) {
         //计算公式：Y(亮度) = 0.299*R + 0.587*G + 0.114*B
         //对于一个int四字节，其彩色值存储方式为：BGRA
-        int grayScale = (int)(ptr[4*i+2]*0.299 + ptr[4*i+1]*0.587 + ptr[4*i+0]*0.114);
-        ptr[4*i+1] = grayScale;
-        ptr[4*i+2] = grayScale;
-        ptr[4*i+0] = grayScale;
+        int grayScale = (int) (ptr[4 * i + 2] * 0.299 + ptr[4 * i + 1] * 0.587 +
+                               ptr[4 * i + 0] * 0.114);
+        ptr[4 * i + 1] = grayScale;
+        ptr[4 * i + 2] = grayScale;
+        ptr[4 * i + 0] = grayScale;
     }
 
     Mat grey = imgData.clone();
 
-    for ( int i = 1; i < 31; i = i + 2 ) {
+    for (int i = 1; i < 31; i = i + 2) {
         GaussianBlur(grey, imgData, Size(i, i), 0, 0);
     }
 
     int size = w * h;
-
 
 
     jintArray result = env->NewIntArray(size);
@@ -120,31 +120,31 @@ JNIEXPORT jintArray JNICALL Java_com_topleex_opencv4androiddemo_OpenCVHelper_med
         JNIEnv *env, jclass obj, jintArray buf, int w, int h) {
 
     jint *cbuf;
-    cbuf = env->GetIntArrayElements(buf, JNI_FALSE );
+    cbuf = env->GetIntArrayElements(buf, JNI_FALSE);
     if (cbuf == NULL) {
         return 0;
     }
 
     Mat imgData(h, w, CV_8UC4, (unsigned char *) cbuf);
 
-    uchar* ptr = imgData.ptr(0);
-    for(int i = 0; i < w*h; i ++){
+    uchar *ptr = imgData.ptr(0);
+    for (int i = 0; i < w * h; i++) {
         //计算公式：Y(亮度) = 0.299*R + 0.587*G + 0.114*B
         //对于一个int四字节，其彩色值存储方式为：BGRA
-        int grayScale = (int)(ptr[4*i+2]*0.299 + ptr[4*i+1]*0.587 + ptr[4*i+0]*0.114);
-        ptr[4*i+1] = grayScale;
-        ptr[4*i+2] = grayScale;
-        ptr[4*i+0] = grayScale;
+        int grayScale = (int) (ptr[4 * i + 2] * 0.299 + ptr[4 * i + 1] * 0.587 +
+                               ptr[4 * i + 0] * 0.114);
+        ptr[4 * i + 1] = grayScale;
+        ptr[4 * i + 2] = grayScale;
+        ptr[4 * i + 0] = grayScale;
     }
 
     Mat grey = imgData.clone();
 
-    for ( int i = 1; i < 31; i = i + 2 ) {
-        medianBlur ( grey, imgData, i );
+    for (int i = 1; i < 31; i = i + 2) {
+        medianBlur(grey, imgData, i);
     }
 
     int size = w * h;
-
 
 
     jintArray result = env->NewIntArray(size);
@@ -157,31 +157,31 @@ JNIEXPORT jintArray JNICALL Java_com_topleex_opencv4androiddemo_OpenCVHelper_ave
         JNIEnv *env, jclass obj, jintArray buf, int w, int h) {
 
     jint *cbuf;
-    cbuf = env->GetIntArrayElements(buf, JNI_FALSE );
+    cbuf = env->GetIntArrayElements(buf, JNI_FALSE);
     if (cbuf == NULL) {
         return 0;
     }
 
     Mat imgData(h, w, CV_8UC4, (unsigned char *) cbuf);
 
-    uchar* ptr = imgData.ptr(0);
-    for(int i = 0; i < w*h; i ++){
+    uchar *ptr = imgData.ptr(0);
+    for (int i = 0; i < w * h; i++) {
         //计算公式：Y(亮度) = 0.299*R + 0.587*G + 0.114*B
         //对于一个int四字节，其彩色值存储方式为：BGRA
-        int grayScale = (int)(ptr[4*i+2]*0.299 + ptr[4*i+1]*0.587 + ptr[4*i+0]*0.114);
-        ptr[4*i+1] = grayScale;
-        ptr[4*i+2] = grayScale;
-        ptr[4*i+0] = grayScale;
+        int grayScale = (int) (ptr[4 * i + 2] * 0.299 + ptr[4 * i + 1] * 0.587 +
+                               ptr[4 * i + 0] * 0.114);
+        ptr[4 * i + 1] = grayScale;
+        ptr[4 * i + 2] = grayScale;
+        ptr[4 * i + 0] = grayScale;
     }
 
     Mat grey = imgData.clone();
 
-    for ( int i = 1; i < 31; i = i + 2 ) {
-        blur( grey, imgData, Size( i, i ), Point(-1,-1) );
+    for (int i = 1; i < 31; i = i + 2) {
+        blur(grey, imgData, Size(i, i), Point(-1, -1));
     }
 
     int size = w * h;
-
 
 
     jintArray result = env->NewIntArray(size);
@@ -194,35 +194,35 @@ JNIEXPORT jintArray JNICALL Java_com_topleex_opencv4androiddemo_OpenCVHelper_ave
 JNIEXPORT jintArray JNICALL Java_com_topleex_opencv4androiddemo_OpenCVHelper_erode(
         JNIEnv *env, jclass obj, jintArray buf, int w, int h) {
     jint *cbuf;
-    cbuf = env->GetIntArrayElements(buf, JNI_FALSE );
+    cbuf = env->GetIntArrayElements(buf, JNI_FALSE);
     if (cbuf == NULL) {
         return 0;
     }
 
     Mat imgData(h, w, CV_8UC4, (unsigned char *) cbuf);
 
-    uchar* ptr = imgData.ptr(0);
-    for(int i = 0; i < w*h; i ++){
+    uchar *ptr = imgData.ptr(0);
+    for (int i = 0; i < w * h; i++) {
         //计算公式：Y(亮度) = 0.299*R + 0.587*G + 0.114*B
         //对于一个int四字节，其彩色值存储方式为：BGRA
-        int grayScale = (int)(ptr[4*i+2]*0.299 + ptr[4*i+1]*0.587 + ptr[4*i+0]*0.114);
-        ptr[4*i+1] = grayScale;
-        ptr[4*i+2] = grayScale;
-        ptr[4*i+0] = grayScale;
+        int grayScale = (int) (ptr[4 * i + 2] * 0.299 + ptr[4 * i + 1] * 0.587 +
+                               ptr[4 * i + 0] * 0.114);
+        ptr[4 * i + 1] = grayScale;
+        ptr[4 * i + 2] = grayScale;
+        ptr[4 * i + 0] = grayScale;
     }
 
     Mat grey = imgData.clone();
 
     int erosion_size = 3;
 
-    Mat element = getStructuringElement( MORPH_RECT,
-                                         Size( 2*erosion_size + 1, 2*erosion_size+1 ),
-                                         Point( erosion_size, erosion_size ) );
+    Mat element = getStructuringElement(MORPH_RECT,
+                                        Size(2 * erosion_size + 1, 2 * erosion_size + 1),
+                                        Point(erosion_size, erosion_size));
 
-    erode( grey, imgData, element );
+    erode(grey, imgData, element);
 
     int size = w * h;
-
 
 
     jintArray result = env->NewIntArray(size);
@@ -236,35 +236,35 @@ JNIEXPORT jintArray JNICALL Java_com_topleex_opencv4androiddemo_OpenCVHelper_dil
         JNIEnv *env, jclass obj, jintArray buf, int w, int h) {
 
     jint *cbuf;
-    cbuf = env->GetIntArrayElements(buf, JNI_FALSE );
+    cbuf = env->GetIntArrayElements(buf, JNI_FALSE);
     if (cbuf == NULL) {
         return 0;
     }
 
     Mat imgData(h, w, CV_8UC4, (unsigned char *) cbuf);
 
-    uchar* ptr = imgData.ptr(0);
-    for(int i = 0; i < w*h; i ++){
+    uchar *ptr = imgData.ptr(0);
+    for (int i = 0; i < w * h; i++) {
         //计算公式：Y(亮度) = 0.299*R + 0.587*G + 0.114*B
         //对于一个int四字节，其彩色值存储方式为：BGRA
-        int grayScale = (int)(ptr[4*i+2]*0.299 + ptr[4*i+1]*0.587 + ptr[4*i+0]*0.114);
-        ptr[4*i+1] = grayScale;
-        ptr[4*i+2] = grayScale;
-        ptr[4*i+0] = grayScale;
+        int grayScale = (int) (ptr[4 * i + 2] * 0.299 + ptr[4 * i + 1] * 0.587 +
+                               ptr[4 * i + 0] * 0.114);
+        ptr[4 * i + 1] = grayScale;
+        ptr[4 * i + 2] = grayScale;
+        ptr[4 * i + 0] = grayScale;
     }
 
     Mat grey = imgData.clone();
 
     int dilation_size = 3;
 
-    Mat element = getStructuringElement( MORPH_RECT,
-                                         Size( 2*dilation_size + 1, 2*dilation_size+1 ),
-                                         Point( dilation_size, dilation_size ) );
+    Mat element = getStructuringElement(MORPH_RECT,
+                                        Size(2 * dilation_size + 1, 2 * dilation_size + 1),
+                                        Point(dilation_size, dilation_size));
 
-    dilate( grey, imgData, element );
+    dilate(grey, imgData, element);
 
     int size = w * h;
-
 
 
     jintArray result = env->NewIntArray(size);
@@ -277,47 +277,46 @@ JNIEXPORT jintArray JNICALL Java_com_topleex_opencv4androiddemo_OpenCVHelper_clo
         JNIEnv *env, jclass obj, jintArray buf, int w, int h) {
 
     jint *cbuf;
-    cbuf = env->GetIntArrayElements(buf, JNI_FALSE );
+    cbuf = env->GetIntArrayElements(buf, JNI_FALSE);
     if (cbuf == NULL) {
         return 0;
     }
 
     Mat imgData(h, w, CV_8UC4, (unsigned char *) cbuf);
 
-    uchar* ptr = imgData.ptr(0);
-    for(int i = 0; i < w*h; i ++){
+    uchar *ptr = imgData.ptr(0);
+    for (int i = 0; i < w * h; i++) {
         //计算公式：Y(亮度) = 0.299*R + 0.587*G + 0.114*B
         //对于一个int四字节，其彩色值存储方式为：BGRA
-        int grayScale = (int)(ptr[4*i+2]*0.299 + ptr[4*i+1]*0.587 + ptr[4*i+0]*0.114);
-        ptr[4*i+1] = grayScale;
-        ptr[4*i+2] = grayScale;
-        ptr[4*i+0] = grayScale;
+        int grayScale = (int) (ptr[4 * i + 2] * 0.299 + ptr[4 * i + 1] * 0.587 +
+                               ptr[4 * i + 0] * 0.114);
+        ptr[4 * i + 1] = grayScale;
+        ptr[4 * i + 2] = grayScale;
+        ptr[4 * i + 0] = grayScale;
     }
 
     Mat grey = imgData.clone();
 
     int dilation_size = 3;
 
-    Mat element = getStructuringElement( MORPH_RECT,
-                                         Size( 2*dilation_size + 1, 2*dilation_size+1 ),
-                                         Point( dilation_size, dilation_size ) );
+    Mat element = getStructuringElement(MORPH_RECT,
+                                        Size(2 * dilation_size + 1, 2 * dilation_size + 1),
+                                        Point(dilation_size, dilation_size));
 
-    dilate( grey, imgData, element );
+    dilate(grey, imgData, element);
 
     Mat grey1 = imgData.clone();
 
     int erosion_size = 3;
 
-    Mat element1 = getStructuringElement( MORPH_RECT,
-                                         Size( 2*erosion_size + 1, 2*erosion_size+1 ),
-                                         Point( erosion_size, erosion_size ) );
+    Mat element1 = getStructuringElement(MORPH_RECT,
+                                         Size(2 * erosion_size + 1, 2 * erosion_size + 1),
+                                         Point(erosion_size, erosion_size));
 
-    erode( grey1, imgData, element1 );
-
+    erode(grey1, imgData, element1);
 
 
     int size = w * h;
-
 
 
     jintArray result = env->NewIntArray(size);
@@ -330,47 +329,46 @@ JNIEXPORT jintArray JNICALL Java_com_topleex_opencv4androiddemo_OpenCVHelper_ope
         JNIEnv *env, jclass obj, jintArray buf, int w, int h) {
 
     jint *cbuf;
-    cbuf = env->GetIntArrayElements(buf, JNI_FALSE );
+    cbuf = env->GetIntArrayElements(buf, JNI_FALSE);
     if (cbuf == NULL) {
         return 0;
     }
 
     Mat imgData(h, w, CV_8UC4, (unsigned char *) cbuf);
 
-    uchar* ptr = imgData.ptr(0);
-    for(int i = 0; i < w*h; i ++){
+    uchar *ptr = imgData.ptr(0);
+    for (int i = 0; i < w * h; i++) {
         //计算公式：Y(亮度) = 0.299*R + 0.587*G + 0.114*B
         //对于一个int四字节，其彩色值存储方式为：BGRA
-        int grayScale = (int)(ptr[4*i+2]*0.299 + ptr[4*i+1]*0.587 + ptr[4*i+0]*0.114);
-        ptr[4*i+1] = grayScale;
-        ptr[4*i+2] = grayScale;
-        ptr[4*i+0] = grayScale;
+        int grayScale = (int) (ptr[4 * i + 2] * 0.299 + ptr[4 * i + 1] * 0.587 +
+                               ptr[4 * i + 0] * 0.114);
+        ptr[4 * i + 1] = grayScale;
+        ptr[4 * i + 2] = grayScale;
+        ptr[4 * i + 0] = grayScale;
     }
 
     Mat grey1 = imgData.clone();
 
     int erosion_size = 3;
 
-    Mat element1 = getStructuringElement( MORPH_RECT,
-                                          Size( 2*erosion_size + 1, 2*erosion_size+1 ),
-                                          Point( erosion_size, erosion_size ) );
+    Mat element1 = getStructuringElement(MORPH_RECT,
+                                         Size(2 * erosion_size + 1, 2 * erosion_size + 1),
+                                         Point(erosion_size, erosion_size));
 
-    erode( grey1, imgData, element1 );
+    erode(grey1, imgData, element1);
 
     Mat grey = imgData.clone();
 
     int dilation_size = 3;
 
-    Mat element = getStructuringElement( MORPH_RECT,
-                                         Size( 2*dilation_size + 1, 2*dilation_size+1 ),
-                                         Point( dilation_size, dilation_size ) );
+    Mat element = getStructuringElement(MORPH_RECT,
+                                        Size(2 * dilation_size + 1, 2 * dilation_size + 1),
+                                        Point(dilation_size, dilation_size));
 
-    dilate( grey, imgData, element );
-
+    dilate(grey, imgData, element);
 
 
     int size = w * h;
-
 
 
     jintArray result = env->NewIntArray(size);
@@ -383,27 +381,28 @@ JNIEXPORT jintArray JNICALL Java_com_topleex_opencv4androiddemo_OpenCVHelper_his
         JNIEnv *env, jclass obj, jintArray buf, int w, int h) {
 
     jint *cbuf;
-    cbuf = env->GetIntArrayElements(buf, JNI_FALSE );
+    cbuf = env->GetIntArrayElements(buf, JNI_FALSE);
     if (cbuf == NULL) {
         return 0;
     }
 
     Mat imgData(h, w, CV_8UC1, (unsigned char *) cbuf);
 
-    uchar* ptr = imgData.ptr(0);
-    for(int i = 0; i < w*h; i ++){
+    uchar *ptr = imgData.ptr(0);
+    for (int i = 0; i < w * h; i++) {
         //计算公式：Y(亮度) = 0.299*R + 0.587*G + 0.114*B
         //对于一个int四字节，其彩色值存储方式为：BGRA
-        int grayScale = (int)(ptr[4*i+2]*0.299 + ptr[4*i+1]*0.587 + ptr[4*i+0]*0.114);
-        ptr[4*i+1] = grayScale;
-        ptr[4*i+2] = grayScale;
-        ptr[4*i+0] = grayScale;
+        int grayScale = (int) (ptr[4 * i + 2] * 0.299 + ptr[4 * i + 1] * 0.587 +
+                               ptr[4 * i + 0] * 0.114);
+        ptr[4 * i + 1] = grayScale;
+        ptr[4 * i + 2] = grayScale;
+        ptr[4 * i + 0] = grayScale;
     }
 
     Mat src = imgData.clone();
 
     /// 应用直方图均衡化
-    equalizeHist( src, imgData );
+    equalizeHist(src, imgData);
 
     int size = h * w;
 
@@ -417,21 +416,22 @@ JNIEXPORT jintArray JNICALL Java_com_topleex_opencv4androiddemo_OpenCVHelper_sob
         JNIEnv *env, jclass obj, jintArray buf, int w, int h) {
 
     jint *cbuf;
-    cbuf = env->GetIntArrayElements(buf, JNI_FALSE );
+    cbuf = env->GetIntArrayElements(buf, JNI_FALSE);
     if (cbuf == NULL) {
         return 0;
     }
 
     Mat imgData(h, w, CV_8UC4, (unsigned char *) cbuf);
 
-    uchar* ptr = imgData.ptr(0);
-    for(int i = 0; i < w*h; i ++){
+    uchar *ptr = imgData.ptr(0);
+    for (int i = 0; i < w * h; i++) {
         //计算公式：Y(亮度) = 0.299*R + 0.587*G + 0.114*B
         //对于一个int四字节，其彩色值存储方式为：BGRA
-        int grayScale = (int)(ptr[4*i+2]*0.299 + ptr[4*i+1]*0.587 + ptr[4*i+0]*0.114);
-        ptr[4*i+1] = grayScale;
-        ptr[4*i+2] = grayScale;
-        ptr[4*i+0] = grayScale;
+        int grayScale = (int) (ptr[4 * i + 2] * 0.299 + ptr[4 * i + 1] * 0.587 +
+                               ptr[4 * i + 0] * 0.114);
+        ptr[4 * i + 1] = grayScale;
+        ptr[4 * i + 2] = grayScale;
+        ptr[4 * i + 0] = grayScale;
     }
 
     Mat grad_x, grad_y;
@@ -442,20 +442,19 @@ JNIEXPORT jintArray JNICALL Java_com_topleex_opencv4androiddemo_OpenCVHelper_sob
     int delta = 0;
     int ddepth = CV_16S;
 
-    Sobel( grey, grad_x, ddepth, 1, 0, 5, scale, delta, BORDER_DEFAULT );
-    convertScaleAbs( grad_x, abs_grad_x );
+    Sobel(grey, grad_x, ddepth, 1, 0, 5, scale, delta, BORDER_DEFAULT);
+    convertScaleAbs(grad_x, abs_grad_x);
 
     /// 求Y方向梯度
     //Scharr( src_gray, grad_y, ddepth, 0, 1, scale, delta, BORDER_DEFAULT );
-    Sobel( grey, grad_y, ddepth, 0, 1, 5, scale, delta, BORDER_DEFAULT );
-    convertScaleAbs( grad_y, abs_grad_y );
+    Sobel(grey, grad_y, ddepth, 0, 1, 5, scale, delta, BORDER_DEFAULT);
+    convertScaleAbs(grad_y, abs_grad_y);
 
     /// 合并梯度(近似)
-    addWeighted( abs_grad_x, 0.5, abs_grad_y, 0.5, 0, imgData );
+    addWeighted(abs_grad_x, 0.5, abs_grad_y, 0.5, 0, imgData);
 
 
     int size = w * h;
-
 
 
     jintArray result = env->NewIntArray(size);

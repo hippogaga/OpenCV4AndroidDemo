@@ -13,7 +13,7 @@ extern "C" {
  * Signature: ([III)[I
  */
 JNIEXPORT jintArray JNICALL Java_com_topleex_opencv4androiddemo_OpenCVHelper_gray
-  (JNIEnv *, jclass, jintArray, jint, jint);
+        (JNIEnv *, jclass, jintArray, jint, jint);
 
 /*
  * Class:     com_topleex_opencv4androiddemo_OpenCVHelper
@@ -94,8 +94,6 @@ JNIEXPORT jintArray JNICALL Java_com_topleex_opencv4androiddemo_OpenCVHelper_sob
  */
 JNIEXPORT jintArray JNICALL Java_com_topleex_opencv4androiddemo_OpenCVHelper_histo
         (JNIEnv *, jclass, jintArray, jint, jint);
-
-
 
 
 #ifdef __cplusplus
